@@ -1,8 +1,8 @@
 #Import stuff!
 import sys, pygame
 def main():
-    SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 500
+    SCREEN_WIDTH = 1080
+    SCREEN_HEIGHT = 720
     FPS = 60
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
@@ -20,3 +20,9 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_running = False
+        window.fill(BLUE)
+        #DRAWING CODE GOES HERE BTW M8
+        pygame.display.flip()
+    pygame.quit()
+    sys.exit()
+main()
