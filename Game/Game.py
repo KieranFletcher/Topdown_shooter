@@ -1,4 +1,4 @@
-#Import stuff!
+#TOPDOWN_SHOOTER - Tutorial game 1.
 import sys, pygame
 def main():
     SCREEN_WIDTH = 1080
