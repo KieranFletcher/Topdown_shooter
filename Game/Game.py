@@ -7,6 +7,7 @@ def main():
     BLACK = (0, 0, 0)
     WHITE = (255, 255, 255)
     BLUE = (0, 0, 255) 
+    WEIRD1 = (255, 153, 89)
     TITLE = "Minecraft"
     pygame.init()
     pygame.mixer.init()
@@ -20,8 +21,13 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 is_running = False
-        window.fill(BLUE)
+        window.fill(BLACK)
         #DRAWING CODE GOES HERE BTW M8
+        pygame.draw.rect(window, WHITE, [0, 320, 400, 400], 10)
+        pygame.draw.polygon(window, WHITE, [[0, 315], [200, 200], [400, 315]])
+        pygame.draw.rect(window, BLUE, [45, 510, 100, 100], 10)
+        pygame.draw.rect(window, BLUE, [250, 510, 100, 100], 10)
+        pygame.draw.rect(window, WEIRD1, [160, 516, 75, 200], 10)
         pygame.display.flip()
     pygame.quit()
     sys.exit()
