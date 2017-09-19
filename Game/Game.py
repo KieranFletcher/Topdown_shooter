@@ -1,5 +1,5 @@
 import sys, pygame
-print("Commit V0.1")
+print("Commit V0.2")
 class Game:
     SCREEN_WIDTH = 1080
     SCREEN_HEIGHT = 720
@@ -61,3 +61,10 @@ class Game:
     def close(self):
         sys.quit
         pygame.quit
+print("-----------------------------")
+print("Sys API Version = ")
+print(sys.api_version)
+print("-----------------------------")
+print("Pygame API Version = ")
+print(pygame.ver)
+print("-----------------------------")
