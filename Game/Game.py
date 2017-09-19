@@ -1,6 +1,6 @@
-#TOPDOWN_SHOOTER - Tutorial game
 import sys, pygame
-def main():
+print("Commit V0.1")
+class Game:
     SCREEN_WIDTH = 1080
     SCREEN_HEIGHT = 720
     FPS = 60
@@ -8,27 +8,56 @@ def main():
     WHITE = (255, 255, 255)
     BLUE = (0, 0, 255) 
     WEIRD1 = (255, 153, 89)
-    TITLE = "Minecraft"
-    pygame.init()
-    pygame.mixer.init()
-    screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
-    clock = pygame.time.Clock()
-    is_running = True
-    window = pygame.display.set_mode(screen_size)
-    pygame.display.set_caption(TITLE)
-    while is_running:
-        clock.tick(FPS)
+    TITLE = "Test game indev"
+    def __init__(self):
+        pygame.init()
+        pygame.mixer.init()
+        screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
+        clock = pygame.time.Clock()
+        is_running = True
+        window = pygame.display.set_mode(screen_size)
+        pygame.display.set_caption(TITLE)
+
+    def init_start_game(self):
+        self.show_start_screen()
+        while not self.is_done:
+            self.new_game()
+            self.show_go_screen()
+
+    def new_game(self):
+        self.run()
+
+    def run(self):
+        while not self.is_done:
+            self.clock.tick(settings.FPS)
+
+            self.events()
+
+            self.update()
+
+            self.draw()
+
+    def events(self):
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                is_running = False
-        window.fill(BLACK)
-        #DRAWING CODE GOES HERE BTW M8
-        pygame.draw.rect(window, WHITE, [0, 320, 400, 400], 10)
-        pygame.draw.polygon(window, WHITE, [[0, 315], [200, 200], [400, 315]])
-        pygame.draw.rect(window, BLUE, [45, 510, 100, 100], 10)
-        pygame.draw.rect(window, BLUE, [250, 510, 100, 100], 10)
-        pygame.draw.rect(window, WEIRD1, [160, 516, 75, 200], 10)
-        pygame.display.flip()
-    pygame.quit()
-    sys.exit()
-main()
+                self.is_done = True
+        
+
+    def update(self):
+        pass
+
+    def draw(self):
+
+        self.window.fill(BLACK)
+
+    def show_start_screen(self):
+        pass
+
+    def show_go_screen(self):
+        pass
+        #GameOver
+
+    def close(self):
+        sys.quit
+        pygame.quit
