@@ -22,7 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EtcFunctions.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Game.py" />
+    <Compile Include="settings.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Sprites.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

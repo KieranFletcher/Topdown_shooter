@@ -1,22 +1,17 @@
 import sys, pygame
-print("Commit V0.2")
+from settings import *
+from EtcFunctions import *
+from Sprites import *
 class Game:
-    SCREEN_WIDTH = 1080
-    SCREEN_HEIGHT = 720
-    FPS = 60
-    BLACK = (0, 0, 0)
-    WHITE = (255, 255, 255)
-    BLUE = (0, 0, 255) 
-    WEIRD1 = (255, 153, 89)
-    TITLE = "Test game indev"
     def __init__(self):
         pygame.init()
         pygame.mixer.init()
         screen_size = (SCREEN_WIDTH, SCREEN_HEIGHT)
-        clock = pygame.time.Clock()
-        is_running = True
-        window = pygame.display.set_mode(screen_size)
+        self.clock = pygame.time.Clock()
+        self.is_done = False
+        self.window = pygame.display.set_mode(screen_size)
         pygame.display.set_caption(TITLE)
+        Versions()
 
     def init_start_game(self):
         self.show_start_screen()
@@ -29,7 +24,7 @@ class Game:
 
     def run(self):
         while not self.is_done:
-            self.clock.tick(settings.FPS)
+            self.clock.tick(FPS)
 
             self.events()
 
@@ -61,10 +56,9 @@ class Game:
     def close(self):
         sys.quit
         pygame.quit
-print("-----------------------------")
-print("Sys API Version = ")
-print(sys.api_version)
-print("-----------------------------")
-print("Pygame API Version = ")
-print(pygame.ver)
-print("-----------------------------")
+
+from Game import Game
+
+if __name__ == "__main__":
+    g = Game()
+    g.init_start_game()
