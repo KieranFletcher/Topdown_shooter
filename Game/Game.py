@@ -2,6 +2,7 @@ import sys, pygame
 from settings import *
 from EtcFunctions import *
 from Sprites import *
+#Versions()
 class Game:
     def __init__(self):
         pygame.init()
@@ -11,15 +12,19 @@ class Game:
         self.is_done = False
         self.window = pygame.display.set_mode(screen_size)
         pygame.display.set_caption(TITLE)
-        Versions()
+        
 
     def init_start_game(self):
         self.show_start_screen()
         while not self.is_done:
             self.new_game()
             self.show_go_screen()
+        self.close()
 
     def new_game(self):
+        self.all_sprites = pygame.sprite.Group()
+        self.player = player()
+        self.all_sprites.add(self.player)
         self.run()
 
     def run(self):
@@ -37,14 +42,24 @@ class Game:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.is_done = True
-        
-
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_a:
+                    self.player.moveLeft()
+                if event.key == pygame.K_d:
+                    self.player.moveRight()
+                if event.key == pygame.K_s:
+                    self.player.moveDown()
+                if event.key == pygame.K_w:
+                    self.player.moveUp()
     def update(self):
-        pass
+        #Update game loop 
+        self.all_sprites.update()
+
 
     def draw(self):
-
         self.window.fill(BLACK)
+        self.all_sprites.draw(self.window)
+        pygame.display.flip()
 
     def show_start_screen(self):
         pass
@@ -54,10 +69,9 @@ class Game:
         #GameOver
 
     def close(self):
-        sys.quit
+        sys.exit
         pygame.quit
 
-from Game import Game
 
 if __name__ == "__main__":
     g = Game()

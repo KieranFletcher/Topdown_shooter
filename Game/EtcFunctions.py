@@ -6,7 +6,7 @@ def Versions():
     print(pygame.ver)
     print("---------------------")
     print("GAME Version:")
-    print("Commit - V0.3")
+    print("Commit - V0.4")
     print("Release - Nil")
     print("---------------------")
     print("Sys Version:")
